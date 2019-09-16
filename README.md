@@ -157,3 +157,6 @@ Then you can plug the disks_model onto the collection view to act as its data so
 SwiftLua is forked from an internal project (photo storage with cloud sync) and is still in developing. It's stable enough for daily scripting, but defintely there're a lot of places to improve for better integration with Swift (e.g. interface generation, better handling of `Optional` & `enum`). So all comments are welcomed. 
 
 Happy Lua Scripting!
+
+## Thanks
+The guessing work of Optional is based on Mike Ash's excellent [Swift Memory Layout](https://www.mikeash.com/pyblog/friday-qa-2014-08-01-exploring-swift-memory-layout-part-ii.html) series of article.
