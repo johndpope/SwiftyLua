@@ -102,3 +102,37 @@ PHAsset.scanStorageSizeProgress_complete_(function (index, total, node)
         return true
     end)
 ```
+
+## Calling Lua from Swift
+
+To define a class in Lua, use the `class` function (`InfDiskCollectionModel` is sub class of `NSObject` and conform to `LuaDiskCollectionModel` protocol):
+```lua
+-- define Lua class InfDiskCollectionModel, callable from Swift side as LuaDiskCollectionModel
+_ENV = class {'InfDiskCollectionModel', 'NSObject', {'LuaDiskCollectionModel'}}
+
+function create(self)
+	return self:init()
+end
+
+function init(self)
+	local obj = self.__ctor()
+	
+	obj.model = {
+		DiskType.Dropbox,
+		DiskType.GoogleDrive,
+	}
+	
+	return obj
+end
+
+-- collection data source
+function numberOfSectionsInCollectionView_(self, collection)
+	return 1
+end
+
+function collectionView_numberOfItemsInSection_(self, collection, section)
+	print('collection: #item')
+	return #self.model
+end
+
+```
