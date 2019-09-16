@@ -136,3 +136,16 @@ function collectionView_numberOfItemsInSection_(self, collection, section)
 end
 
 ```
+
+`LuaDiskCollectionModel` is defined as an ObjC protocol:
+```Objc
+@protocol LuaDiskCollectionModel <NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
++ (id<LuaDiskCollectionModel>) create;
+@end
+```
+
+`LuaDiskCollectionModel` will work as a collection view data source. And to create it on Swift side:
+```Swift
+let disks_model_cls: LuaDiskCollectionModel.Type = InfL.DiskCollectionModel.lclass()
+let disks_model: LuaDiskCollectionModel = disks_model_cls.create()
+```
