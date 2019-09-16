@@ -19,7 +19,9 @@ let swiftyLua = SwiftyLuaBridge(UserDefaults.standard.luaBridgeDebug ? "playgrou
 ```
 will load the debug playground based on the settings.
 
-## Importing Swift Classes
+## Calling Swift from Lua
+
+### Importing Swift Classes
 
 `SwiftLuaBridge` is defined as: 
 ```swift
@@ -46,7 +48,7 @@ local foo = Foo:init()
 print(foo.var)
 ```
 
-## Importing Enum
+### Importing Enum
 
 ```swift
 bridge.reg(DiskType.self, .Enum)
@@ -64,9 +66,9 @@ And in Lua:
 let dropbox = DiskType.Dropbox:createDiskClient()
 ```
 
-## Importing ObjC Class
+### Importing ObjC Class
 
-## For method with Closure Parameter 
+### For method with Closure Parameter 
 
 Class like `PHAsset` has method with closure parameter: `scanStorageSize(progress:complete:))`. To call this method in Lua, we need to wrap the `progress` and `complete` callback function from Lua and ensure the arguments matches the signature and handle the reference count of captured object correctly.
 
@@ -82,4 +84,15 @@ bridge.reg(PHAsset.self)
                 .s_method("scanStorageSizeProgress_complete_", trait.static(PHAsset.scanStorageSize(progress:complete:)))
                     .block(((UInt, UInt, AssetNode)->Int).self)
                     .block(((UInt64, [AssetNode], [AssetNode], [AssetNode])->()).self)
+```
+
+To call in Lua:
+```lua
+PHAsset.scanStorageSizeProgress_complete_(function (index, total, node)
+		print('progress bg ', index, total, index/total)
+		return math.max(math.floor(total/100), 1)
+	end, function (size, new, delete, edit)
+		print('complete size scan: ', size, #new, #delete, #edit)
+        return true
+    end)
 ```
