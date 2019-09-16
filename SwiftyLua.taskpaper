@@ -1,0 +1,9 @@
+
+Design Rules:
+	- pragmatic
+	- prefer Swift when possible
+	- adopt latest Swift tech
+	- no tricks is better than non-stable/portable tricks
+	- aware/alarm about Apple app review rules
+
+To Do:
