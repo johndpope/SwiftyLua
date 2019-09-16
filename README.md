@@ -149,3 +149,9 @@ end
 let disks_model_cls: LuaDiskCollectionModel.Type = InfL.DiskCollectionModel.lclass()
 let disks_model: LuaDiskCollectionModel = disks_model_cls.create()
 ```
+Then you can plug the disks_model onto the collection view to act as its data source. 
+
+## Still in Development
+SwiftLua is forked from an internal project (photo storage with cloud sync) and is still in developing. It's stable enough for daily scripting, but defintely there're a lot of places to improve for better integration with Swift (e.g. interface generation). So all comments are welcomened. 
+
+Happy Lua Scripting!
