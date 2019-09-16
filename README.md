@@ -68,6 +68,12 @@ let dropbox = DiskType.Dropbox:createDiskClient()
 
 ### Importing ObjC Class
 
+OjbC class importing is easy:
+```swift
+bridge.reg(UIImage.self)
+```
+No need to register the methods, SwiftyLua will laverage ObjC runtime to forward to the right method at the calling point in Lua. 
+
 ### For method with Closure Parameter 
 
 Class like `PHAsset` has method with closure parameter: `scanStorageSize(progress:complete:))`. To call this method in Lua, we need to wrap the `progress` and `complete` callback function from Lua and ensure the arguments matches the signature and handle the reference count of captured object correctly.
