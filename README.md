@@ -159,4 +159,4 @@ SwiftLua is forked from an internal project (photo storage with cloud sync) and 
 Happy Lua Scripting!
 
 ## Thanks
-The guessing work of Optional is based on Mike Ash's excellent [Swift Memory Layout](https://www.mikeash.com/pyblog/friday-qa-2014-08-01-exploring-swift-memory-layout-part-ii.html) series of article.
+* The guessing work of Optional is based on Mike Ash's excellent [Swift Memory Layout](https://www.mikeash.com/pyblog/friday-qa-2014-08-01-exploring-swift-memory-layout-part-ii.html) series of article.
