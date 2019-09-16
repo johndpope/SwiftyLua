@@ -3,6 +3,10 @@ Swift&lt;->Lua Bridge Framework (iOS)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+SwiftyLua is a two-way bridge between Swift/ObjC and Lua. It's forked from an internal iOS project (photo storage with cloud sync) and is stable enough for realworld product. 
+
+It supports importing of Swift/ObjC class, enum, struct and function/closure to Lua. You can also define class in Lua and export the interface to Swift side (via protocol). 
+
 The intention is to seperate application logic into Lua and let Swift to handle the *hard* part. Similar to what have done in many *scriptable* games, the engine will deal with underlying game loop, rendering, user input, event detection etc., and leave the game logic to the script. Decouple policy from mechanism gives both part the felexibiltiy to evlove without breaking the other side. And you can empower the product with the best of both languages.
 
 ## Init
